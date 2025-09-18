@@ -48,7 +48,7 @@ This project implements an end-to-end data pipeline and AI system for analyzing 
 ### Cloning the Repository
 
 ```bash
-git clone https://github.com/DAMG-7245/SentimentSift-AI-Powered-Review-Analysis-Platform.git
+git clone 
 
 ```
 
@@ -206,8 +206,4 @@ The system enables users to explore Boston café data through natural language q
 
 ---
 
-## Contact
 
-For questions, reach out via Big Data Course or open an issue on GitHub.
-
----
