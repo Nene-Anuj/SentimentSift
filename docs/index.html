@@ -1,0 +1,201 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>SentimentSift: AI-Powered Review Analysis Platform</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" ga4id=""></google-codelab-analytics>
+  <google-codelab codelab-gaid=""
+                  codelab-ga4id=""
+                  id="docs"
+                  title="SentimentSift: AI-Powered Review Analysis Platform"
+                  environment="web"
+                  feedback-link="">
+    
+      <google-codelab-step label="Overview" duration="0">
+        <p><strong>SentimentSift</strong> is an AI-powered platform designed to filter emotional biases from online reviews and provide objective, fact-based insights for consumers and businesses. The platform also curates a network of reliable food bloggers, displaying all restaurants they&#39;ve reviewed for trustworthy recommendations.</p>
+<p class="image-container"><img alt="Theme" src="img\\4f50ee79a0d3433f.jpg"><img alt="Theme" src="img\\d2773f70657e2e23.png"></p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Introduction" duration="0">
+        <h2 is-upgraded>Background</h2>
+<p>In the competitive restaurant industry, customer reviews and social media feedback shape perceptions and influence dining decisions. However, the lack of a unified system to normalize ratings and extract actionable insights from unstructured data creates challenges for restaurant owners, customers, and market researchers. Reviews often reflect biases and lack consolidated evaluations of key aspects such as food, service, and ambiance.</p>
+<h2 is-upgraded>Objective</h2>
+<p>Deliver actionable insights to stakeholders through:</p>
+<ul>
+<li><strong>Restaurant Owners:</strong> Brief reports summarizing trends in high-performing restaurants.</li>
+<li><strong>Customers:</strong> Consolidated, unbiased ratings for informed dining decisions.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Project Overview" duration="0">
+        <p class="image-container"><img alt="Architecture" src="img\\ffce49423d9c34c6.jpg"></p>
+<h2 is-upgraded>Project Architecture</h2>
+<p>SentimentSift is designed as a modular, AI-powered platform for extracting objective insights from online restaurant reviews. The architecture features:</p>
+<ul>
+<li><strong>Data Ingestion:</strong> Collects structured and unstructured data from APIs (Google, Yelp, Twitter) using Rapid API.</li>
+<li><strong>Preprocessing:</strong> Cleans, normalizes, and enriches data with metadata.</li>
+<li><strong>Storage:</strong> Raw data in JSON; processed data in Snowflake.</li>
+<li><strong>Analysis:</strong><ul>
+<li><em>Aspect-Based Sentiment Analysis</em> (PyABSA) for food, service, ambiance.</li>
+<li><em>Theme Extraction</em> (BERTopic) for recurring topics.</li>
+</ul>
+</li>
+<li><strong>Vector Embedding:</strong> Stores embeddings in Pinecone for semantic search.</li>
+<li><strong>UI &amp; Interaction:</strong> Streamlit for visualization and querying.</li>
+<li><strong>Conversational AI:</strong> RAG-powered chatbot (Gemini 2.0 flash) for natural language queries and context-aware responses.</li>
+<li><strong>SQL Agent:</strong> Vanna.AI for advanced querying.</li>
+</ul>
+<h2 is-upgraded>Services Utilized</h2>
+<ul>
+<li><strong>Rapid API:</strong> Review and metadata aggregation.</li>
+<li><strong>Snowflake:</strong> Data validation and storage.</li>
+<li><strong>PyABSA:</strong> Aspect-based sentiment scoring.</li>
+<li><strong>BERTopic:</strong> Topic modeling.</li>
+<li><strong>Pinecone:</strong> Vector database for embeddings.</li>
+<li><strong>Streamlit:</strong> Interactive web interface.</li>
+<li><strong>Gemini 2.0 flash:</strong> RAG chatbot integration.</li>
+<li><strong>Vanna.AI:</strong> RAG-powered SQL agent.</li>
+</ul>
+<h2 is-upgraded>Challenges Encountered &amp; Solutions</h2>
+<table>
+<tr><td colspan="1" rowspan="1"><p>Challenge</p>
+</td><td colspan="1" rowspan="1"><p>Description</p>
+</td><td colspan="1" rowspan="1"><p>Solution/Workaround</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>Limited Data Access</strong></p>
+</td><td colspan="1" rowspan="1"><p>Free, high-quality review data was scarce, limiting analysis reliability.</p>
+</td><td colspan="1" rowspan="1"><p>Prioritized data cleaning, flagged low-data restaurants, and planned for future dataset expansion.</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>Data Quality &amp; Normalization</strong></p>
+</td><td colspan="1" rowspan="1"><p>Reviews from different sources had inconsistent scales and formats.</p>
+</td><td colspan="1" rowspan="1"><p>Implemented robust preprocessing and normalization routines; flagged ambiguous or sparse data[5][6].</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>Sentiment Complexity</strong></p>
+</td><td colspan="1" rowspan="1"><p>Mixed sentiments, sarcasm, and cultural nuances complicated analysis.</p>
+</td><td colspan="1" rowspan="1"><p>Used aspect-based models and topic extraction to isolate and clarify sentiment[4][5][6].</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>Multi-Agent Architecture</strong></p>
+</td><td colspan="1" rowspan="1"><p>Coordinating multiple LLM agents for bias reduction increased system complexity.</p>
+</td><td colspan="1" rowspan="1"><p>Iteratively refined agent prompts and workflows for better collaboration and aggregation.</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>Integration Overhead</strong></p>
+</td><td colspan="1" rowspan="1"><p>Combining multiple services and tools led to technical challenges.</p>
+</td><td colspan="1" rowspan="1"><p>Modularized the pipeline and used standard APIs for smoother integration and troubleshooting.</p>
+</td></tr>
+</table>
+<h2 is-upgraded>Overcoming Challenges</h2>
+<ul>
+<li><strong>Data Limitations:</strong> Focused on maximizing value from available data, clearly flagging cases with insufficient information, and designing the system for easy scaling as more data becomes available[5].</li>
+<li><strong>Normalization:</strong> Developed custom scripts to standardize ratings and sentiment scores, ensuring comparability across sources[5][6].</li>
+<li><strong>Sentiment Nuance:</strong> Leveraged advanced NLP models capable of aspect-level analysis and topic modeling to address mixed sentiments and contextual subtleties[4][5][6].</li>
+<li><strong>System Integration:</strong> Adopted a modular approach, allowing independent development and testing of each component before full pipeline integration.</li>
+</ul>
+<h2 is-upgraded>Development Insights</h2>
+<p>The project highlighted the importance of robust data collection, preprocessing, and the need for domain-specific models to handle the nuances of sentiment analysis. By iteratively refining both the technical pipeline and analytical models, SentimentSift was able to deliver actionable, unbiased insights despite initial data and integration hurdles.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Stakeholders" duration="0">
+        <ul>
+<li><strong>Restaurant Owners:</strong> Actionable reports on strengths/weaknesses.</li>
+<li><strong>Market Researchers:</strong> Analytics for emerging dining trends.</li>
+<li><strong>Customers:</strong> Unbiased, normalized ratings for decision-making.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Problem Statement" duration="0">
+        <h2 is-upgraded>Current Challenges</h2>
+<ul>
+<li>Managing unstructured review data across multiple platforms with inconsistent rating scales.</li>
+<li>Limited tools for extracting meaningful insights from customer feedback.</li>
+<li>Difficulty identifying trends in high- vs. low-rated restaurants.</li>
+</ul>
+<h2 is-upgraded>Opportunities</h2>
+<ul>
+<li>Improved decision-making could boost customer retention.</li>
+<li>Enhanced analytics for real-time alerts on recurring issues.</li>
+</ul>
+<h2 is-upgraded>Use Cases</h2>
+<ul>
+<li>Consolidated ratings for Boston restaurants based on sentiment scores.</li>
+<li>Tiered summary reports for high-performing restaurants.</li>
+<li>Interactive querying of trends via Streamlit UI.</li>
+<li>Chatbot queries such as: <ul>
+<li>&#34;Top-rated Italian restaurants in Boston?&#34;</li>
+<li>&#34;Restaurants open late with outdoor seating?&#34;</li>
+<li>&#34;Common complaints about service in low-rated restaurants?&#34;</li>
+</ul>
+</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Resources and Team" duration="0">
+        <ul>
+<li><strong>Data Engineer:</strong> API integration, data collection/preprocessing, Snowflake setup.</li>
+<li><strong>Machine Learning Engineer:</strong> Sentiment analysis (PyABSA), theme extraction (BERTopic), RAG pipeline, chatbot.</li>
+<li><strong>Frontend Developer:</strong> Streamlit UI, chatbot integration.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Risks" duration="0">
+        <h2 is-upgraded>Risks</h2>
+<ul>
+<li>API rate limits may delay data collection.</li>
+<li>Sparse review data may impact insight accuracy.</li>
+<li>Integration challenges between multiple technologies/tools.</li>
+</ul>
+<h2 is-upgraded>Expected Benefits</h2>
+<ul>
+<li>Actionable insights for restaurant owners by tier.</li>
+<li>Unbiased, normalized ratings for customers.</li>
+<li>Trend identification for market researchers.</li>
+<li>Reduction in time to analyze customer feedback.</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Conclusion" duration="0">
+        <p>SentimentSift integrates advanced tools (PyABSA, BERTopic, Pinecone, LangChain, OpenAI GPT-4, Snowflake, Streamlit) to bridge the gap between unstructured feedback and actionable insights—revolutionizing decision-making for the restaurant industry with its RAG-powered chatbot.</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

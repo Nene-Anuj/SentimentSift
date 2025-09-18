@@ -1,0 +1,29 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2025-04-18T11:46:36-04:00",
+  "id": "docs",
+  "duration": 0,
+  "title": "SentimentSift: AI-Powered Review Analysis Platform",
+  "authors": "Group 1",
+  "summary": "Build SentimentSift to filter emotional bias from online reviews and provide objective insights.",
+  "source": "codelab.md",
+  "theme": "",
+  "status": null,
+  "category": [
+    "ai",
+    "nlp",
+    "dataengineering"
+  ],
+  "tags": [
+    "airflow",
+    "fastapi",
+    "llm",
+    "rag",
+    "sentiment-analysis",
+    "streamlit"
+  ],
+  "url": "docs"
+}

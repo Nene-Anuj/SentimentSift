@@ -1,0 +1,15 @@
+bertopic
+nltk
+numpy
+pandas
+python-dotenv
+requests
+scikit_learn
+scipy
+sentence_transformers
+snowflake_connector_python
+snowflake_snowpark_python
+snowflake_snowpark_python[pandas]
+torch
+tqdm
+transformers
